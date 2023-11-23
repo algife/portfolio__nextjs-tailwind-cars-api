@@ -7,6 +7,8 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import SearchButton from "./SearchButton";
 import SearchByManufacturer from "./SearchByManufacturer";
 import SearchByModel from "./SearchByModel";
+import CustomFilter from "./CustomFilter";
+import { fuels, yearsOfProduction } from "@/config/constants";
 
 const SearchBar = () => {
   // RHF: React Hook Form
@@ -46,9 +48,16 @@ const SearchBar = () => {
             <SearchButton extraClasses="max-sm:hidden" />
             <div className="searchbar__filter-group">
               <div className="flex gap-2 justify-center">
-                (FUEL FILTER)
-                <br />
-                (YEAR FILTER)
+                <CustomFilter
+                  name="fuel"
+                  options={fuels}
+                  {...{ formMethods }}
+                />
+                <CustomFilter
+                  name="year"
+                  options={yearsOfProduction}
+                  {...{ formMethods }}
+                />
               </div>
             </div>
           </div>

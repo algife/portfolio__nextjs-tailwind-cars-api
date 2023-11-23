@@ -45,11 +45,12 @@ export type CarSearchFilterPropsStrict = Pick<
 > & {
   fuel: CarProps["fuel_type"];
   manufacturer: CarProps["make"];
+
+  // Not strict props
   page?: number;
-  // limit?: number;
+  limit?: string; // stringified
 };
 
-export type CarSearchFilterPropsPartial = Partial<CarSearchFilterPropsStrict>;
 export type SearchStateSlice = {
   filters: CarSearchFilterPropsPartial;
   results: CarProps[];
@@ -69,3 +70,11 @@ export type UpdateSearchStateHookProps = {
 export interface SearchFilterComponentProps {
   formMethods: UseFormReturn<CarSearchFilterPropsPartial, any, undefined>;
 }
+
+export interface CustomFilterProps {
+  name: keyof CarSearchFilterPropsStrict;
+  options: (string | number)[];
+  formMethods: UseFormReturn<CarSearchFilterPropsPartial, any, undefined>;
+}
+
+export type CarSearchFilterPropsPartial = Partial<CarSearchFilterPropsStrict>;

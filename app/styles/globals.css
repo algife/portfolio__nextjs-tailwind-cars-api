@@ -30,6 +30,10 @@
 .custom-button {
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
+.show-more-button,
+.go-back-button {
+  @apply w-full flex-center gap-5 mt-10;
+}
 /* END: General styles */
 
 /* START: Hero styles */
@@ -119,6 +123,29 @@
 .searchbar__submit-btn {
   @apply -ml-4 rounded-lg z-10;
 }
+.searchbar__filter-container {
+  /* @apply w-full flex  gap-2; */
+  @apply w-full flex flex-wrap justify-start items-center gap-2;
+}
+.searchbar__filter-group {
+  @apply flex w-full gap-5 flex-between items-center;
+}
+
+.custom-filter__listbox {
+  @apply relative w-fit z-10;
+}
+.custom-filter__btn {
+  @apply relative w-full min-w-[127px] flex justify-between items-center cursor-default rounded-lg bg-white py-2 px-3 text-left shadow-md sm:text-sm border;
+}
+
+.custom-filter__options {
+  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+}
+.custom-filter__options {
+  @apply relative cursor-default select-none py-2 px-4;
+}
+
+/* END: searchbar styles */
 
 /* START: search manufacturer styles */
 .search-manufacturer__options {
