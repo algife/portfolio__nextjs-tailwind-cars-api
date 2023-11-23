@@ -26,6 +26,11 @@ export type ReduxState = {
   globalUI: GlobalUIStateSlice;
 };
 
+export type AuthStateSlice = {
+  isAuth: boolean;
+  isModerator: boolean;
+  username: string;
+  uid: string;
 };
 
 export interface CarProps {
