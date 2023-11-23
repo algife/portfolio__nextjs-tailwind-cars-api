@@ -1,10 +1,14 @@
 "use client";
+import { useRouter } from "next/navigation";
 import CustomButton from "./buttons/CustomButton";
 
 const Hero = () => {
+  const router = useRouter();
+
   const handleClick = () => {
-    console.log("btn clicked");
+    router.push("/catalog");
   };
+
   return (
     <div className="hero">
       <div className="hero-text-container">
