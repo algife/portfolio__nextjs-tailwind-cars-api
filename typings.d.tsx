@@ -1,6 +1,11 @@
 /* Types go here */
 
 import { MouseEventHandler } from "react";
+import {
+  UseFormGetValues,
+  UseFormReturn,
+  UseFormSetValue,
+} from "react-hook-form";
 
 export enum RenderingMethod {
   "ISR" = "ISR", // Incremental Static Regeneration → data is fetched once on build time and again in subsequent visits after a certain cooldown time.
@@ -39,13 +44,47 @@ export type CarSearchFilterPropsStrict = Pick<
   "drive" | "model" | "transmission" | "year"
 > & {
   fuel: CarProps["fuel_type"];
+  year: CarProps["year"];
   manufacturer: CarProps["make"];
+
+  // Not strict props
   page?: number;
-  // limit?: number;
+  limit?: string; // stringified
 };
 
-export type CarSearchFilterPropsPartial = Partial<CarSearchFilterPropsStrict>;
+export type GlobalUIStateSlice = {
+  isLoading: boolean;
+};
+
 export type SearchStateSlice = {
   filters: CarSearchFilterPropsPartial;
   results: CarProps[];
 };
+
+export interface WithSearchParamsProp {
+  searchParams: CarSearchFilterPropsPartial;
+}
+export interface SearchResultsProps extends WithSearchParamsProp {}
+export interface CatalogPageProps extends WithSearchParamsProp {}
+export type SearchHookProps = {
+  getValues: UseFormGetValues<CarSearchFilterPropsPartial>;
+};
+export type UpdateSearchStateHookProps = {
+  setValue: UseFormSetValue<CarSearchFilterPropsPartial>;
+};
+export interface SearchFilterComponentProps {
+  formMethods: UseFormReturn<CarSearchFilterPropsPartial, any, undefined>;
+}
+
+export interface CustomFilterProps {
+  name: keyof CarSearchFilterPropsStrict;
+  options: (string | number)[];
+  formMethods: UseFormReturn<CarSearchFilterPropsPartial, any, undefined>;
+}
+
+export type CarSearchFilterPropsPartial = Partial<CarSearchFilterPropsStrict>;
+
+export interface HelperTextProps {
+  text: string;
+  show: boolean;
+}

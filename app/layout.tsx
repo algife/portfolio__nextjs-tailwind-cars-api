@@ -1,8 +1,9 @@
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import ReduxProvider from "@/redux/redux.provider";
 import type { Metadata } from "next";
 import "./styles/globals.css";
-import Navbar from "@/components/Navbar";
+import LoadingStatusBar from "@/components/LoadingStatusBar";
 
 export const metadata: Metadata = {
   title: "CarHub",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: Props) {
     <html lang="en">
       <body className="body">
         <ReduxProvider>
+          <LoadingStatusBar />
           <Navbar />
           {children}
           <Footer />

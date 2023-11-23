@@ -1,13 +1,19 @@
-import SearchResult from "@/components/SearchResult";
+"use client";
+import SearchResults from "@/components/catalog/SearchResults";
+import SearchBar from "@/components/search/SearchBar";
+import { CatalogPageProps } from "@/typings.d";
 
-export default function CatalogPage() {
+export default function CatalogPage({ searchParams }: CatalogPageProps) {
   return (
-    <div>
-      Catalog Page 
-
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
-    </div>
+    <>
+      <div className="catalog__text-container justify-items-center">
+        <h1 className="text-4xl font-extrabold mt-5">Our selection of cars.</h1>
+        <p>Find your most desired car.</p>
+      </div>
+      <div className="mt-2 mx-0 w-full">
+        <SearchBar />
+        <SearchResults {...{ searchParams }} />
+      </div>
+    </>
   );
 }
