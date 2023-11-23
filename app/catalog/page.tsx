@@ -1,4 +1,5 @@
 "use client";
+import SearchResults from "@/components/catalog/SearchResults";
 import SearchBar from "@/components/search/SearchBar";
 
 export default function CatalogPage() {
@@ -11,6 +12,7 @@ export default function CatalogPage() {
       </div>
       <div className="mt-2 mx-0 w-full">
         <SearchBar />
+        <SearchResults {...{ searchParams }} />
       </div>
     </>
   );
