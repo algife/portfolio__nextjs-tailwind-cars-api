@@ -1,12 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
-import searchReducers from "./reducers/search.reducers";
+import globalUISlice from "./features/global-ui.slice";
+import searchSlice from "./features/search.slice";
 
 export const store = configureStore({
   reducer: {
-    search: searchReducers,
+    globalUI: globalUISlice.reducer,
+    search: searchSlice.reducer,
   },
   preloadedState: {
+    globalUI: undefined,
     search: undefined,
   },
 });

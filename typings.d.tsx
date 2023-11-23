@@ -51,6 +51,10 @@ export type CarSearchFilterPropsStrict = Pick<
   limit?: string; // stringified
 };
 
+export type GlobalUIStateSlice = {
+  isLoading: boolean;
+};
+
 export type SearchStateSlice = {
   filters: CarSearchFilterPropsPartial;
   results: CarProps[];

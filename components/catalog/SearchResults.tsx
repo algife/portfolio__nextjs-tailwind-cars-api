@@ -1,18 +1,27 @@
 "use client";
 import { ITEMS_PER_PAGE } from "@/config/constants";
+import { setSearchResults } from "@/redux/actions/search.actions";
 import { store } from "@/redux/store";
 import { CarProps, SearchResultsProps } from "@/typings.d";
+import { fetchCars } from "@/utils/functions";
 import { Suspense, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import _ from "underscore";
 import SearchResultCard from "./SearchResultCard";
-import { fetchCars } from "@/utils/functions";
+import {
+  setLoadingStart,
+  setLoadingEnd,
+} from "@/redux/actions/global-ui.actions";
 
 export default function SearchResults({ searchParams }: SearchResultsProps) {
+  const dispatch = useDispatch();
   const storedList = store.getState().search.results ?? [];
   const [displayList, setDisplayList] = useState<CarProps[]>(storedList);
   const [pagination, setPagination] = useState<number>(1);
 
   const setResultsAndPagination = async () => {
+    dispatch(setLoadingStart());
+
     const newPage: number = +(searchParams.page || 1);
     setPagination(newPage);
 
@@ -21,6 +30,7 @@ export default function SearchResults({ searchParams }: SearchResultsProps) {
       model: searchParams.model || "",
     });
     // Set fetched list by Updating the state
+    dispatch(setSearchResults(listFetched));
     const [startIndex, endIndex] = [
       Math.min(ITEMS_PER_PAGE * (newPage - 1), listFetched?.length ?? 0),
       Math.min(ITEMS_PER_PAGE * newPage, listFetched?.length ?? 0),
@@ -33,11 +43,13 @@ export default function SearchResults({ searchParams }: SearchResultsProps) {
       [];
 
     setDisplayList(paginatedList);
+    dispatch(setLoadingEnd());
   };
 
   useEffect(
     () => {
       setResultsAndPagination();
+      return () => {};
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [searchParams]

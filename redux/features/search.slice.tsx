@@ -1,5 +1,6 @@
-import { CarProps, SearchStateSlice } from "@/typings.d";
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { SearchStateSlice } from "@/typings.d";
+import { createSlice } from "@reduxjs/toolkit";
+import searchReducers from "../reducers/search.reducers";
 
 // Prepare the initial state
 const initialState: SearchStateSlice = {
@@ -14,31 +15,11 @@ const initialState: SearchStateSlice = {
   },
 };
 
-// Prepare the reducers
-const _searchReducers = {
-  setSearchResults: (
-    currentSliceState: SearchStateSlice,
-    action: PayloadAction<CarProps[]>
-  ) => {
-    return {
-      ...currentSliceState,
-      results: [...action.payload],
-    };
-  },
-  setSearchParam: (
-    currentSliceState: SearchStateSlice,
-    action: PayloadAction<{ [pKey: string]: string }>
-  ) => {
-    return {
-      ...currentSliceState,
-      filters: { [action.payload[0]]: action.payload[1] ?? "" },
-    };
-  },
-};
-
 // Create the state slice
-export const searchSlice = createSlice({
+const searchSlice = createSlice({
   name: "search",
   initialState,
-  reducers: _searchReducers,
+  reducers: searchReducers,
 });
+
+export default searchSlice;
