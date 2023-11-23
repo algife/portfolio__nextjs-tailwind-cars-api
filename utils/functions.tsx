@@ -48,7 +48,14 @@ export const parseParamsForAPI = (
   // manufacturer --> make
   if (obj.manufacturer) result.make = obj.manufacturer;
   delete result.manufacturer;
-  
+
+  // fuel --> fuel_type
+  if (obj.fuel) result.fuel_type = obj.fuel;
+  delete result.fuel;
+
+  // Add an explicit limit in the request to avoid the default one
+  result.limit = `${50}`;
+
   return new URLSearchParams(result);
 };
 
