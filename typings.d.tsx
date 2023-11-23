@@ -65,6 +65,7 @@ export interface WithSearchParamsProp {
   searchParams: CarSearchFilterPropsPartial;
 }
 export interface SearchResultsProps extends WithSearchParamsProp {}
+export interface CatalogPageProps extends WithSearchParamsProp {}
 export type SearchHookProps = {
   getValues: UseFormGetValues<CarSearchFilterPropsPartial>;
 };

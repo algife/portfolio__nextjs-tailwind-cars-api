@@ -2,15 +2,13 @@
 import { manufacturers } from "@/config/constants";
 import useSearch from "@/hooks/useSearch";
 import { SearchFilterComponentProps } from "@/typings.d";
-import {
-  findManufacturer,
-  trimLowercaseOrEmptyString,
-} from "@/utils/functions";
 import { Combobox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Fragment, useMemo } from "react";
 import _ from "underscore";
+import HelperText from "../HelperText";
 import SearchButton from "./SearchButton";
+import { findManufacturer, trimLowercaseOrEmptyString } from "@/utils/functions";
 
 const SearchByManufacturer = ({ formMethods }: SearchFilterComponentProps) => {
   const name = "manufacturer";
@@ -144,7 +142,10 @@ const SearchByManufacturer = ({ formMethods }: SearchFilterComponentProps) => {
           </Transition>
         </div>
       </Combobox>
-
+      <HelperText
+        show={!!errors.manufacturer}
+        text="Invalid car manufacturer."
+      />
       <SearchButton extraClasses="sm:hidden" />
     </div>
   );

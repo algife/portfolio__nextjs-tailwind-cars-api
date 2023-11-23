@@ -32,7 +32,6 @@ const CustomFilter = ({
 
   const { register, getValues, setValue } = formMethods;
   const search = useSearch();
-  const dispatch = useDispatch();
   const handleSelectValueChange = (optSel: CustomFilterOption) => {
     // TODO Start loading bar
 

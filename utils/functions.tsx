@@ -6,12 +6,12 @@ import {
 } from "@/typings.d";
 import _ from "underscore";
 
-export const getRenderingMethod = (
+export const getFetchingMethod = (
   strategy: RenderingMethod
 ): RequestInit | undefined => {
   switch (strategy) {
     case "ISR":
-      return { next: { revalidate: 60 } };
+      return { next: { revalidate: 60 * 60 * 24 } }; // revalidate every day
     case "SSR":
       return { cache: "no-cache" };
     case "SSG":
@@ -19,44 +19,6 @@ export const getRenderingMethod = (
     default:
       return undefined;
   }
-};
-
-export const removeEmptyPropsFromObject = (
-  obj: Record<string, any>,
-  setValueToString: boolean = false
-): Record<string, string> =>
-  Object.keys(obj)
-    .filter(
-      (k) =>
-        !_.isNull(obj[k]) &&
-        !_.isUndefined(obj[k]) &&
-        !(_.isString(obj[k]) && _.isEmpty(obj[k]))
-    )
-    .reduce(
-      (acc, nextKey) => ({
-        ...acc,
-        [nextKey]: setValueToString ? `${obj[nextKey]}` : obj[nextKey],
-      }),
-      {}
-    );
-
-export const parseParamsForAPI = (
-  obj: CarSearchFilterPropsPartial
-): URLSearchParams => {
-  let result: Record<string, any> = removeEmptyPropsFromObject(obj, true);
-
-  // manufacturer --> make
-  if (obj.manufacturer) result.make = obj.manufacturer;
-  delete result.manufacturer;
-
-  // fuel --> fuel_type
-  if (obj.fuel) result.fuel_type = obj.fuel;
-  delete result.fuel;
-
-  // Add an explicit limit in the request to avoid the default one
-  result.limit = `${50}`;
-
-  return new URLSearchParams(result);
 };
 
 export const fetchCars = async (
@@ -91,22 +53,6 @@ export const fetchCars = async (
     return [];
   }
 };
-
-export const getFetchingMethod = (
-  strategy: RenderingMethod
-): RequestInit | undefined => {
-  switch (strategy) {
-    case "ISR":
-      return { next: { revalidate: 60 * 60 * 24 } }; // revalidate every day
-    case "SSR":
-      return { cache: "no-cache" };
-    case "SSG":
-      return { cache: "force-cache" };
-    default:
-      return undefined;
-  }
-};
-
 // export const fetchCarById = async (id: string): Promise<CarProps[]> => {
 //   const filters = {};
 //   return fetchCars(filters);
@@ -199,6 +145,40 @@ export const findManufacturer = (qm: string | undefined): string => {
   );
 };
 
+export const getCarName = ({
+  make,
+  model,
+  fuel_type,
+  year,
+}: CarProps): React.ReactElement => (
+  <>
+    <div className="car-name__make-and-model">
+      {sentenceCase(make)} {sentenceCase(model)}
+    </div>
+    <div className="car-name__fuel-and-year">
+      {`${sentenceCase(fuel_type)} -- ${year}`}
+    </div>
+  </>
+);
+
+export const getRandomIntegerBetween = (a: number, b: number): number => {
+  // Ensure min and max are integers
+  if (b < a)
+    throw new Error(
+      "Invalid params, please make sure the first number used as parameter is below the second number"
+    );
+  const min = Math.ceil(a);
+  const max = Math.floor(b);
+
+  // Generate a random integer between min (inclusive) and max (inclusive)
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+export const selectRandomSuperCar = () => {
+  const i = getRandomIntegerBetween(0, mostDesiredSuperCars.length - 1);
+  return mostDesiredSuperCars[i];
+};
+
 export const trimLowercaseOrEmptyString = (
   str: string | number | null | undefined
 ) => (str ?? "").toString().trim().toLowerCase();
@@ -234,4 +214,41 @@ export const tryParseIntOrContinue = (str: string | number) => {
     console.warn("Cannot parse Int from:" + str);
     return str;
   }
+};
+export const removeEmptyPropsFromObject = (
+  obj: Record<string, any>,
+  setValueToString: boolean = false
+): Record<string, string> =>
+  Object.keys(obj)
+    .filter(
+      (k) =>
+        !_.isNull(obj[k]) &&
+        !_.isUndefined(obj[k]) &&
+        !(_.isString(obj[k]) && _.isEmpty(obj[k]))
+    )
+    .reduce(
+      (acc, nextKey) => ({
+        ...acc,
+        [nextKey]: setValueToString ? `${obj[nextKey]}` : obj[nextKey],
+      }),
+      {}
+    );
+
+export const parseParamsForAPI = (
+  obj: CarSearchFilterPropsPartial
+): URLSearchParams => {
+  let result: Record<string, any> = removeEmptyPropsFromObject(obj, true);
+
+  // manufacturer --> make
+  if (obj.manufacturer) result.make = obj.manufacturer;
+  delete result.manufacturer;
+
+  // fuel --> fuel_type
+  if (obj.fuel) result.fuel_type = obj.fuel;
+  delete result.fuel;
+
+  // Add an explicit limit in the request to avoid the default one
+  result.limit = `${50}`;
+
+  return new URLSearchParams(result);
 };

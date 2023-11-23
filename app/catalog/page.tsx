@@ -1,9 +1,9 @@
 "use client";
 import SearchResults from "@/components/catalog/SearchResults";
 import SearchBar from "@/components/search/SearchBar";
+import { CatalogPageProps } from "@/typings.d";
 
-export default function CatalogPage() {
-  const searchParams = {}; //TODO
+export default function CatalogPage({ searchParams }: CatalogPageProps) {
   return (
     <>
       <div className="catalog__text-container justify-items-center">

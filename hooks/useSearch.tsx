@@ -34,6 +34,20 @@ const _parseFilterSearchToSearchParams = (
   return newPathname;
 };
 
+// const _parseFilterSearchFromSearchParams = (
+//   filters: CarSearchFilterPropsPartial,
+//   ignorePrevious: boolean = false
+// ) => {
+//   const searchParams = buildSearchParams(filters, ignorePrevious);
+//   setNewUrlSearchParams(searchParams, filters as { [k: string]: string });
+
+//   return keysSearchFilters.reduce(
+//     (acc, k) => ({ ...acc, [k]: searchParams.get(k) }),
+//     {}
+//   );
+// };
+
+// HOOK
 const useSearch = () => {
   const router = useRouter();
 

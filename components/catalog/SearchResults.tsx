@@ -3,7 +3,7 @@ import { ITEMS_PER_PAGE } from "@/config/constants";
 import { setSearchResults } from "@/redux/actions/search.actions";
 import { store } from "@/redux/store";
 import { CarProps, SearchResultsProps } from "@/typings.d";
-import { fetchCars } from "@/utils/functions";
+import { fetchCars, getCarId } from "@/utils/functions";
 import { Suspense, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import _ from "underscore";
@@ -81,7 +81,7 @@ export default function SearchResults({ searchParams }: SearchResultsProps) {
           <>
             <section className="catalog-wrapper">
               {displayList?.map((car: CarProps, _i: number) => (
-                <SearchResultCard {...{ car }} key={_i.toString()} />
+                <SearchResultCard {...{ car }} key={getCarId(car)} />
               ))}
             </section>
           </>
