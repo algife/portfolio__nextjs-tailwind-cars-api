@@ -56,9 +56,6 @@
 }
 /* END: Hero styles */
 
-/* END: General styles */
-
-
 /* START: Footer styles */
 .footer {
   @apply flex flex-col text-black-100  mt-5 border-t border-gray-100;
@@ -88,3 +85,47 @@
   @apply flex-1 flex sm:justify-end justify-center max-sm:mt-4 gap-10;
 }
 /* END: Footer styles */
+
+/* START: Catalog styles */
+.catalog-page {
+  @apply mt-14 max-width padding-x padding-y;
+}
+
+.catalog-wrapper {
+  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14;
+}
+/* END: Catalog styles */
+
+/* START: searchbar styles */
+.searchbar {
+  @apply flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl;
+}
+.searchbar__item {
+  @apply mr-2 w-full;
+}
+.searchbar__input {
+  /* rounded-l-full max-sm:rounded-full  */
+  @apply w-full h-[48px] py-4 pl-10 rounded-full bg-light-white outline-none focus:outline-none cursor-pointer text-sm text-grey;
+}
+.searchbar-combobox {
+  @apply relative w-full;
+}
+.searchbar__img-container {
+  @apply absolute ml-3 mt-3.5;
+}
+.searchbar__img {
+  @apply w-[20px] h-[20px];
+}
+.searchbar__submit-btn {
+  @apply -ml-4 rounded-lg z-10;
+}
+
+/* START: search manufacturer styles */
+.search-manufacturer__options {
+  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+}
+
+.search-manufacturer__option {
+  @apply cursor-default select-none py-2 pl-10 pr-4;
+}
+/* END: search manufacturer styles */
