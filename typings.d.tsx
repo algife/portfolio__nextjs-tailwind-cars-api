@@ -65,7 +65,6 @@ export interface WithSearchParamsProp {
   searchParams: CarSearchFilterPropsPartial;
 }
 export interface SearchResultsProps extends WithSearchParamsProp {}
-
 export type SearchHookProps = {
   getValues: UseFormGetValues<CarSearchFilterPropsPartial>;
 };
@@ -83,3 +82,8 @@ export interface CustomFilterProps {
 }
 
 export type CarSearchFilterPropsPartial = Partial<CarSearchFilterPropsStrict>;
+
+export interface HelperTextProps {
+  text: string;
+  show: boolean;
+}
