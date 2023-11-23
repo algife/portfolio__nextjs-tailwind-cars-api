@@ -1,5 +1,6 @@
 {
   "name": "nextjs-tailwind-redux---cars-api",
+  "author": "Alexandre Gimenez - COOKING STARTUPS LTD. (cookingstartupscom@gmail.com)",
   "version": "0.1.0",
   "private": true,
   "scripts": {
