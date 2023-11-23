@@ -22,6 +22,10 @@ export type CustomButtonProps = {
 };
 export type ReduxState = {
   search: SearchStateSlice;
+  auth: AuthStateSlice;
+  globalUI: GlobalUIStateSlice;
+};
+
 };
 
 export interface CarProps {
