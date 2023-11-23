@@ -44,6 +44,7 @@ export type CarSearchFilterPropsStrict = Pick<
   "drive" | "model" | "transmission" | "year"
 > & {
   fuel: CarProps["fuel_type"];
+  year: CarProps["year"];
   manufacturer: CarProps["make"];
 
   // Not strict props

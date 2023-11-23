@@ -28,6 +28,7 @@ export default function SearchResults({ searchParams }: SearchResultsProps) {
     const listFetched = await fetchCars({
       manufacturer: searchParams.manufacturer || "",
       model: searchParams.model || "",
+      year: searchParams.year || undefined,
     });
     // Set fetched list by Updating the state
     dispatch(setSearchResults(listFetched));
