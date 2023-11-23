@@ -1,6 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
 import CustomButton from "./buttons/CustomButton";
+import { selectRandomSuperCar } from "@/utils/functions";
+import CarImage from "./CarImage";
 
 const Hero = () => {
   const router = useRouter();
@@ -24,7 +26,13 @@ const Hero = () => {
         />
       </div>
       <div className="hero__image-container">
-        <div className="hero__image">(CAR IMAGE)</div>
+        <div className="hero__image">
+          <CarImage
+            car={selectRandomSuperCar()}
+            angle={23}
+            alt="Hero image of a car"
+          />
+        </div>
         <div className="hero__image-overlay"></div>
       </div>
     </div>
