@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import ReduxProvider from "@/redux/redux.provider";
 import type { Metadata } from "next";
 import "./styles/globals.css";
 
@@ -16,9 +17,11 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body className="body">
-        <Header />
-        {children}
-        <Footer />
+        <ReduxProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );
