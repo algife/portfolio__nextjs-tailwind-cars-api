@@ -22,7 +22,7 @@ export const getFetchingMethod = (
 };
 
 export const fetchCars = async (
-  filters: CarSearchFilterPropsPartial
+  filters: Exclude<CarSearchFilterPropsPartial, "page">
 ): Promise<CarProps[]> => {
   const HOST = "cars-by-api-ninjas.p.rapidapi.com";
 

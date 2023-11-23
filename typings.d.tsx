@@ -88,3 +88,10 @@ export interface HelperTextProps {
   text: string;
   show: boolean;
 }
+export interface BackButtonProps {
+  page?: number;
+  isSecondaryButton?: boolean;
+}
+export interface ShowMoreButtonProps extends BackButtonProps {
+  totalCount: number;
+}

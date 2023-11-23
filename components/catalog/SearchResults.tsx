@@ -1,5 +1,9 @@
 "use client";
 import { ITEMS_PER_PAGE } from "@/config/constants";
+import {
+  setLoadingEnd,
+  setLoadingStart,
+} from "@/redux/actions/global-ui.actions";
 import { setSearchResults } from "@/redux/actions/search.actions";
 import { store } from "@/redux/store";
 import { CarProps, SearchResultsProps } from "@/typings.d";
@@ -7,11 +11,9 @@ import { fetchCars, getCarId } from "@/utils/functions";
 import { Suspense, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import _ from "underscore";
+import GoBackButton from "../buttons/GoBackButton";
+import ShowMoreButton from "../buttons/ShowMoreButton";
 import SearchResultCard from "./SearchResultCard";
-import {
-  setLoadingStart,
-  setLoadingEnd,
-} from "@/redux/actions/global-ui.actions";
 
 export default function SearchResults({ searchParams }: SearchResultsProps) {
   const dispatch = useDispatch();
@@ -57,6 +59,8 @@ export default function SearchResults({ searchParams }: SearchResultsProps) {
     [searchParams]
   );
 
+  const storedFullResults = store.getState().search.results.length;
+
   const isDataEmpty = !displayList || _.isEmpty(displayList);
   const hasSomeFilterSearchParams = Object.keys(searchParams).length > 0;
 
@@ -83,6 +87,17 @@ export default function SearchResults({ searchParams }: SearchResultsProps) {
               {displayList?.map((car: CarProps, _i: number) => (
                 <SearchResultCard {...{ car }} key={getCarId(car)} />
               ))}
+              <div className="flex flex-row p-6 justify-center items-center text-black-100 mx-auto">
+                <div className="flex p-4">
+                  <GoBackButton page={pagination} />
+                </div>
+                <div className="flex p-4">
+                  <ShowMoreButton
+                    totalCount={storedFullResults}
+                    page={pagination}
+                  />
+                </div>
+              </div>
             </section>
           </>
         )
