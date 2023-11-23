@@ -15,40 +15,43 @@
 .max-width {
   @apply max-w-[1440px] mx-auto;
 }
-
 .padding-x {
   @apply sm:px-16 px-6;
 }
-
 .padding-y {
   @apply py-4;
 }
-
 .flex-center {
   @apply flex items-center justify-center;
 }
-
 .flex-between {
   @apply flex justify-between items-center;
 }
-
+.custom-button {
+  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
 /* END: General styles */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* START: Hero styles */
+.hero {
+  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.hero-text-container {
+  @apply flex-1 pt-36 padding-x;
 }
+.hero__title {
+  @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold;
+}
+.hero__subtitle {
+  @apply text-[27px] text-black-100 font-light mt-5;
+}
+.hero__image-container {
+  @apply xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen;
+}
+.hero__image {
+  @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
+}
+.hero__image-overlay {
+  @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
+}
+/* END: Hero styles */
