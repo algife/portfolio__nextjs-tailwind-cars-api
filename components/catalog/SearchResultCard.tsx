@@ -70,14 +70,13 @@ const SearchResultCard = ({ car }: { car: CarProps }) => {
           )}
         </div>
         <div className="car-card__btn-container">
-          (see details button)
-          {/* <CustomButton
+          <CustomButton
             label="See details"
             containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
             textStyles="text-white text-[14px] leading-[17px] font-bold"
-            // TODO rightIcon="/right-arrow.svg"
+            rightIcon="/right-arrow.svg"
             handleClick={handleSeeDetailsClick}
-          /> */}
+          />
         </div>
       </div>
       <CarDetailsDialog {...{ car, isModalOpen, setIsModalOpen }} />
