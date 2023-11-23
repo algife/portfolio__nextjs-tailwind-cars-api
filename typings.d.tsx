@@ -15,3 +15,37 @@ export type CustomButtonProps = {
   textStyles?: string;
   label: React.ReactElement | string;
 };
+export type ReduxState = {
+  search: SearchStateSlice;
+};
+
+export interface CarProps {
+  city_mpg: number;
+  class: string;
+  combination_mpg: number;
+  cylinders: number;
+  displacement: number;
+  drive: "fwd" | "rwd" | "awd" | "4wd"; // Possible values: fwd (front-wheel drive), rwd (rear-wheel drive), awd (all-wheel drive), 4wd (four-wheel drive)
+  fuel_type: "gas" | "electricity" | "hybrid"; // Type of fuel used. Possible values: gas, diesel, electricity
+  highway_mpg: number;
+  make: string;
+  model: string;
+  powerTrain: string;
+  transmission: string;
+  year: number;
+}
+export type CarSearchFilterPropsStrict = Pick<
+  CarProps,
+  "drive" | "model" | "transmission" | "year"
+> & {
+  fuel: CarProps["fuel_type"];
+  manufacturer: CarProps["make"];
+  page?: number;
+  // limit?: number;
+};
+
+export type CarSearchFilterPropsPartial = Partial<CarSearchFilterPropsStrict>;
+export type SearchStateSlice = {
+  filters: CarSearchFilterPropsPartial;
+  results: CarProps[];
+};
