@@ -22,7 +22,7 @@ This is a [Next.js 14](https://nextjs.org/) project bootstrapped with [`create-n
 - [x] Data fetching techniques (ISR, SSR, SSG)
 - [x] Server-side Rendering
 - [x] Server components
-<!-- - [x] Server Actions -->
+- [x] Server Actions
 - [x] Client components when user interaction is needed
 - [x] Next.js built-in reserved-keyword pages such as:
   - `page.tsx`, `layout.tsx`
