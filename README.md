@@ -1,4 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js 14 demo
+
+> Publicly available at [this website](https://portfolio-nextjs-tailwind-cars-api.vercel.app/)
+
+This is a [Next.js 14](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and it makes use of different technologies and patterns such as:
+
+- [x] TypeScript
+- [x] Next.js 14
+- [x] Third-party API data fetching (RapidAPI - Cars)
+- [x] Use Params inheritance in functional components.
+- [x] Routing
+  - [x] Regular routes
+  - [x] Url param's routes such as `[query]` and `[id]`
+  - [x] Grouped Routes (e.g. `(users)`)
+- [x] Server Actions
+- [x] Create Custom Hooks
+- [x] Data fetching techniques (ISR, SSR, SSG)
+- [x] Server-side Rendering
+  - [x] Server components
+  - [x] Client components when user interaction is needed
+- [x] Next.js built-in reserved-keyword pages such as:
+  - `page.tsx`, `layout.tsx`
+  - custom error pages using `error.tsx`
+  - Custom Not Found page using `not-found.tsx`
+  - loading placeholders using `loading.tsx` or the `<Suspense fallback={/*...*/}>` component.
+  - loading status bar indicating progress during the search.
+- [x] Customized the html page titles using Metadata rather than `head.tsx`.
+- [x] Params fetching:
+  - [x] Using dynamic params (`/(users)/catalog/[id]/page.tsx`) -- Although cars doesn't have an specific id provided by the server.
+  - [x] Using router prefetching.
+  <!-- - [x] Using generateStaticParams (`/components/SearchResults.tsx`) -->
+- [x] Redux State Management replacing the useState React Hook.
+- [x] Authentication & Authorization
+- [ ] Performance Optimization
+- [x] Using Context API
+- [ ] Testing
+- [x] Build and Deployment
+- [x] Using BEM naming convention for CSS class names
+- [x] Version Control (Git) and Git flow.
+- [ ] Database Interaction
+- [ ] API Design:
+  - with REST (HATEOAS Level 2)
+  - with tRPC (one single endpoint)
+  - with GraphQL (one single endpoint)
+  - with Prisma (one single endpoint)
+- [ ] Request Validation and Error handling with Zod Validation
+- [x] Search Functionality:
+  - [x] use React Hook Forms (RHF)
+  - [x] update search results on input changes
+  - [x] use debounce/throttling to reduce amount of API requests
+  - [x] Create Custom Filtering Capabilities
+  - [x] Frictionless search experience with auto fill inputs on direct URL search query and query parameters parsing with partial matching.
+  - [x] Combobox Autocomplete Suggestions with Headless UI
+  - [x] modal elements to display details
+  - [ ] Form Validation and Errors
+  - [x] Inherit props from the form from parent to children.
+- [ ] Optimize Metadata and SEO
+- [x] Responsive Design
 
 ## Getting Started
 
@@ -6,12 +63,6 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
