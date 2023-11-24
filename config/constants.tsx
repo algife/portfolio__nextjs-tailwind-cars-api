@@ -109,6 +109,5 @@ export const keysSearchFilters: (keyof CarSearchFilterPropsStrict)[] = [
   "manufacturer",
   "year",
   "fuel",
-  "limit",
   "page",
 ];

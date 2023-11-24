@@ -11,7 +11,6 @@ const initialState: SearchStateSlice = {
     year: undefined,
     fuel: undefined,
     page: 1,
-    // limit: undefined,
   },
 };
 

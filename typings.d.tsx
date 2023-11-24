@@ -59,7 +59,6 @@ export type CarSearchFilterPropsStrict = Pick<
 
   // Not strict props
   page?: number;
-  limit?: string; // stringified
 };
 
 export type GlobalUIStateSlice = {
