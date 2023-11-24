@@ -94,94 +94,69 @@
 /* END: Footer styles */
 
 /* START: Catalog styles */
-.catalog-page {
-  @apply mt-14 max-width padding-x padding-y;
+.catalog__container {
+  @apply relative max-width padding-x padding-y;
 }
-
-.catalog-wrapper {
-  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14;
+.catalog__text-container {
+  @apply max-width padding-x flex flex-col items-start gap-y-2.5 text-black-100 justify-center;
+}
+.catalog__search-area {
+  /* @apply flex flex-col relative w-full padding-x padding-y mx-auto justify-center align-middle; */
+  @apply max-width padding-x mt-4;
+}
+.catalog__results {
+  @apply max-width padding-y grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8;
+}
+.catalog__results .catalog__buttons-container {
+  @apply flex-center flex-row gap-4 ; 
 }
 /* END: Catalog styles */
 
-/* START: Car Card styles */
-.car-card {
-  @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl;
+/* START: Details Card styles */
+.details-card {
+  @apply w-full flex flex-col justify-center items-start p-6 text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl;
 }
 
-.car-card__content {
+.details-card__content {
   @apply w-full flex justify-between items-start gap-2;
 }
 
-.car-card__content-title {
+.details-card__content-title {
   @apply text-[22px] leading-[26px] font-bold capitalize;
 }
 
-.car-card__price {
+.details-card__price {
   @apply flex mt-6 text-[32px] leading-[38px] font-extrabold;
 }
 
-.car-card__price-dollar {
+.details-card__price-dollar {
   @apply self-start text-[14px] leading-[17px] font-semibold;
 }
 
-.car-card__price-day {
+.details-card__price-day {
   @apply self-end text-[14px] leading-[17px] font-medium;
 }
 
-.car-card__image {
+.details-card__image {
   @apply relative w-full h-40 my-3 object-contain;
 }
 
-.car-card__icon-container {
+.details-card__icon-container {
   @apply flex group-hover:invisible w-full justify-between text-grey;
 }
 
-.car-card__icon {
+.details-card__icon {
   @apply flex flex-col justify-center items-center gap-2;
 }
 
-.car-card__icon-text {
+.details-card__icon-text {
   @apply text-[14px] leading-[17px];
 }
 
-.car-card__btn-container {
+.details-card__btn-container {
   @apply hidden group-hover:flex absolute bottom-0 w-full z-10;
 }
-/* END: Car Card styles */
-
-/* START: Car Details styles */
-.car-details__dialog-panel {
-  @apply relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5;
-}
-
-.car-details__close-btn {
-  @apply absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full;
-}
-.car-details__main-image {
-  @apply relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg;
-}
-.car-details__columns {
-  @apply flex gap-3;
-}
-.car-details__main {
-  @apply flex-1 flex flex-col gap-3;
-}
-.car-details__columns-item {
-  @apply flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg;
-}
-.car-details__name {
-  @apply font-semibold text-xl capitalize;
-}
-.car-details__tech {
-  @apply mt-3 flex flex-wrap gap-4;
-}
-.car-details__tech-item {
-  @apply flex justify-between gap-5 w-full text-right;
-}
-.car-details__showcase {
-  @apply flex-1 flex flex-col gap-2;
-}
-/* END: Car Details styles */
+/* END: Details Card styles */
 
 /* START: Dialog */
 .dialog {
@@ -202,8 +177,41 @@
 .dialog__panel-close {
   @apply absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full;
 }
-
 /* END: Dialog */
+
+/* START: Details styles */
+.details__dialog-panel {
+  @apply relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5;
+}
+
+.details__close-btn {
+  @apply absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full;
+}
+.details__main-image {
+  @apply relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg;
+}
+.details__columns {
+  @apply flex gap-3;
+}
+.details__main {
+  @apply flex-1 flex flex-col gap-3;
+}
+.details__columns-item {
+  @apply flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg;
+}
+.details__name {
+  @apply font-semibold text-xl capitalize;
+}
+.details__tech {
+  @apply mt-3 flex flex-wrap gap-4;
+}
+.details__tech-item {
+  @apply flex justify-between gap-5 w-full text-right;
+}
+.details__showcase {
+  @apply flex-1 flex flex-col gap-2;
+}
+/* END: Details styles */
 
 /* START: searchbar styles */
 .searchbar {

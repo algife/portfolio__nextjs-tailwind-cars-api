@@ -38,7 +38,7 @@ const SearchBar = () => {
       <form
         name="searchbar"
         id="searchbar"
-        className="searchbar searchbar__form"
+        className="searchbar"
         onSubmit={formMethods.handleSubmit(handleSubmit)}
       >
         <div className="searchbar__filter-container">

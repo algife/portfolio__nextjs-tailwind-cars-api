@@ -19,18 +19,18 @@ const SearchResultCard = ({ car }: { car: CarProps }) => {
   };
 
   return (
-    <div className="car-card group">
-      <h2 className="car-card__title">
+    <div className="details-card">
+      <h2 className="details-card__title">
         {getCarName(car)} {car.class}
       </h2>
-      <p className="flex mt-6 car-card__rent">
-        <span className="text-[32px] font-extrabold car-card__rent__amount">
+      <p className="flex mt-6 details-card__rent">
+        <span className="text-[32px] font-extrabold details-card__rent__amount">
           {carRent}
         </span>
-        <span className="self-center ml-1 mt-2 text-[14px] font-semibold car-card__rent__currency">
+        <span className="self-center ml-1 mt-2 text-[14px] font-semibold details-card__rent__currency">
           &euro;
         </span>
-        <span className="self-center ml-1 mt-2 self-center mt-2 text-[14px] font-medium car-card__rent__period">
+        <span className="self-center ml-1 mt-2 text-[14px] font-medium details-card__rent__period">
           /day
         </span>
       </p>
@@ -69,7 +69,7 @@ const SearchResultCard = ({ car }: { car: CarProps }) => {
             </div>
           )}
         </div>
-        <div className="car-card__btn-container">
+        <div className="details-card__btn-container">
           <CustomButton
             label="See details"
             containerStyles="w-full py-[16px] rounded-full bg-primary-blue"

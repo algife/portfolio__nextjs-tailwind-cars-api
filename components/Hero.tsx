@@ -1,15 +1,28 @@
 "use client";
-import { useRouter } from "next/navigation";
-import CustomButton from "./buttons/CustomButton";
 import { selectRandomSuperCar } from "@/utils/functions";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import CarImage from "./CarImage";
+import CustomButton from "./buttons/CustomButton";
 
 const Hero = () => {
   const router = useRouter();
+  const ctaHref =
+    "/catalog?" +
+    // inject a sample query
+    new URLSearchParams({
+      manufacturer: "Ford",
+      model: "Mustang",
+      page: "1",
+    }).toString();
 
-  const handleClick = () => {
-    router.push("/catalog");
-  };
+  const handleClick = () => router.push(ctaHref);
+
+  useEffect(
+    () => router.prefetch(ctaHref),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [ctaHref]
+  );
 
   return (
     <div className="hero">
