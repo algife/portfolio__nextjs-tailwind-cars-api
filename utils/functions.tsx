@@ -45,7 +45,9 @@ export const fetchCars = async (
       console.error("API Request error: ", (result as any).error);
       return [];
     }
-    // Update the state to store the results available for the whole app
+
+    // sort by year
+    result.sort((a, b) => b.year - a.year);
 
     return result;
   } catch (error) {
