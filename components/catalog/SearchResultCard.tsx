@@ -19,7 +19,7 @@ const SearchResultCard = ({ car }: { car: CarProps }) => {
   };
 
   return (
-    <div className="details-card">
+    <div className="details-card group">
       <h2 className="details-card__title">
         {getCarName(car)} {car.class}
       </h2>
