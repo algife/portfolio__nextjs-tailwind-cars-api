@@ -20,6 +20,8 @@ export type CustomButtonProps = {
   isDisabled?: boolean;
   textStyles?: string;
   label: React.ReactElement | string;
+  leftIcon?: string;
+  rightIcon?: string;
 };
 export type ReduxState = {
   search: SearchStateSlice;
