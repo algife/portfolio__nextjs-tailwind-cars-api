@@ -247,16 +247,16 @@
 .searchbar__submit-btn {
   @apply -ml-4 rounded-lg z-10;
 }
-.searchbar__filter-container {
-  /* @apply w-full flex  gap-2; */
-  @apply w-full flex flex-wrap justify-start items-center gap-2;
-}
-.searchbar__filter-group {
-  @apply flex w-full gap-5 flex-between items-center;
-}
 /* END: searchbar styles */
 
 /* START: Search Custom filters styles */
+
+.searchbar__filter-container {
+  @apply w-full flex flex-wrap justify-start items-center gap-2;
+}
+.searchbar__filter-group {
+  @apply flex w-full gap-5 flex-between items-start;
+}
 .custom-filter__listbox {
   @apply relative w-fit z-10;
 }
@@ -267,7 +267,7 @@
 .custom-filter__options {
   @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
 }
-.custom-filter__options {
+.custom-filter__option {
   @apply relative cursor-default select-none py-2 px-4;
 }
 
