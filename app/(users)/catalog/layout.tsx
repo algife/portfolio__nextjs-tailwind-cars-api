@@ -20,7 +20,7 @@ export default async function RootLayout({ children }: Props) {
       hasBackButton={false}
     />
   ) : (
-    <main className="flex search-results-container">{children}</main>
+    <main className="catalog-page">{children}</main>
   );
 }
 

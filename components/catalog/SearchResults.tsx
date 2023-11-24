@@ -83,15 +83,15 @@ export default function SearchResults({ searchParams }: SearchResultsProps) {
       ) : (
         !isDataEmpty && (
           <>
-            <section className="catalog-wrapper">
+            <section className="catalog__results">
               {displayList?.map((car: CarProps, _i: number) => (
                 <SearchResultCard {...{ car }} key={getCarId(car)} />
               ))}
-              <div className="flex flex-row p-6 justify-center items-center text-black-100 mx-auto">
-                <div className="flex p-4">
+              <div className="catalog__buttons-container">
+                <div className="catalog__button">
                   <GoBackButton page={pagination} />
                 </div>
-                <div className="flex p-4">
+                <div className="catalog__button">
                   <ShowMoreButton
                     totalCount={storedFullResults}
                     page={pagination}

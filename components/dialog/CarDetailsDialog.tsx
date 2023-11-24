@@ -59,34 +59,34 @@ export default function CarDetailsDialog({
                   />
                 </button>
 
-                <div className="car-details__main">
+                <div className="details__main">
                   {/* main image */}
-                  <section className="car-details__main-image">
+                  <section className="details__main-image">
                     <CarImage car={car} angle={0} alt="car model" />
                   </section>
 
                   {/* three-cols section */}
-                  <section className="car-details__columns">
-                    <div className="car-details__columns-item">
+                  <section className="details__columns">
+                    <div className="details__columns-item">
                       <CarImage car={car} angle={29} alt="car model" />
                     </div>
-                    <div className="car-details__columns-item">
+                    <div className="details__columns-item">
                       <CarImage car={car} angle={33} alt="car model" />
                     </div>
-                    <div className="car-details__columns-item">
+                    <div className="details__columns-item">
                       <CarImage car={car} angle={13} alt="car model" />
                     </div>
                   </section>
                 </div>
 
-                <div className="car-details__showcase">
-                  <h2 className="car-details__name">
+                <div className="details__showcase">
+                  <h2 className="details__name">
                     {car.make} {car.model}
                   </h2>
 
-                  <div className="car-details__tech">
+                  <div className="details__tech">
                     {Object.entries(car).map(([key, value]) => (
-                      <div className="car-details__tech-item" key={key}>
+                      <div className="details__tech-item" key={key}>
                         <h4 className="text-grey capitalize">
                           {key.split("_").join(" ")}
                         </h4>
