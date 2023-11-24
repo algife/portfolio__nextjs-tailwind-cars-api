@@ -4,17 +4,15 @@ import authReducers from "../reducers/auth.reducers";
 
 // Prepare the initial state
 export const initialState: AuthStateSlice = {
-  isAuth: false,
   isModerator: false,
-  username: "",
-  uid: "",
+  session: null,
 };
 
 // Create the state slice
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: authReducers
+  reducers: authReducers,
 });
 
 export default authSlice;

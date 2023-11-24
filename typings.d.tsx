@@ -1,6 +1,7 @@
 /* Types go here */
 
-import { MouseEventHandler } from "react";
+import { Session } from "next-auth";
+import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 import {
   UseFormGetValues,
   UseFormReturn,
@@ -27,10 +28,8 @@ export type ReduxState = {
 };
 
 export type AuthStateSlice = {
-  isAuth: boolean;
   isModerator: boolean;
-  username: string;
-  uid: string;
+  session: Session | null;
 };
 
 export interface CarProps {
@@ -70,6 +69,9 @@ export type SearchStateSlice = {
   results: CarProps[];
 };
 
+export interface WithSessionProp {
+  session: Session | null;
+}
 export interface WithSearchParamsProp {
   searchParams: CarSearchFilterPropsPartial;
 }
@@ -104,3 +106,4 @@ export interface BackButtonProps {
 export interface ShowMoreButtonProps extends BackButtonProps {
   totalCount: number;
 }
+

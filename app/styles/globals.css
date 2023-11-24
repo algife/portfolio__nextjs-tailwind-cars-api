@@ -27,9 +27,12 @@
 .flex-between {
   @apply flex justify-between items-center;
 }
-.custom-button {
+
+.custom-button,
+.text-signed-in {
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
+
 .show-more-button,
 .go-back-button {
   @apply w-full flex-center gap-5 mt-10;

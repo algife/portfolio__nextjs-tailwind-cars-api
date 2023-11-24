@@ -1,9 +1,12 @@
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import ReduxProvider from "@/redux/redux.provider";
-import type { Metadata } from "next";
-import "./styles/globals.css";
 import LoadingStatusBar from "@/components/LoadingStatusBar";
+import Navbar from "@/components/Navbar";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import ReduxProvider from "@/providers/redux.provider";
+import SessionProvider from "@/providers/session.provider";
+import type { Metadata } from "next";
+import { getServerSession } from "next-auth";
+import "./styles/globals.css";
 
 export const metadata: Metadata = {
   title: "CarHub",
@@ -14,16 +17,20 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default function RootLayout({ children }: Props) {
+export default async function RootLayout({ children }: Props) {
+  const session = await getServerSession(authOptions);
+
   return (
     <html lang="en">
       <body className="body">
-        <ReduxProvider>
-          <LoadingStatusBar />
-          <Navbar />
-          {children}
-          <Footer />
-        </ReduxProvider>
+        <SessionProvider session={session}>
+          <ReduxProvider>
+            <LoadingStatusBar />
+            <Navbar session={session} />
+            {children}
+            <Footer />
+          </ReduxProvider>
+        </SessionProvider>
       </body>
     </html>
   );

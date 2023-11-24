@@ -7,7 +7,17 @@ export const metadata: Metadata = {
 type Props = {
   children: React.ReactNode;
 };
+export default async function RootLayout({ children }: PageProps) {
+  const session = await getServerSession();
 
-export default function RootLayout({ children }: Props) {
-  return <div className="catalog-page">{children}</div>;
+    <main className="flex search-results-container">{children}</main>
 }
+
+// export async function getServerSideProps(
+//   _context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
+// ) {
+//   const session = await getServerSession();
+//   return {
+//     props: { session },
+//   };
+// }
