@@ -13,7 +13,7 @@ const Hero = () => {
 
   return (
     <div className="hero">
-      <div className="hero-text-container">
+      <div className="hero__text-container">
         <h1 className="hero__title">
           <strong>Drive your dream car</strong>
         </h1>

@@ -43,8 +43,8 @@
 .hero {
   @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
 }
-.hero-text-container {
-  @apply flex-1 pt-36 padding-x;
+.hero__text-container {
+  @apply flex-1 pt-36 padding-x ml-4;
 }
 .hero__title {
   @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold;
