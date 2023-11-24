@@ -2,14 +2,22 @@
 import { BackButtonProps } from "@/typings.d";
 import { useRouter } from "next/navigation";
 import CustomButton from "./CustomButton";
+import useSearch from "@/hooks/useSearch";
 
 const GoBackButton = ({
   page = -1,
   isSecondaryButton = true,
 }: BackButtonProps) => {
+  const search = useSearch();
+
   const isFirstPage = page === 1;
   const router = useRouter();
   const handleNavigation = () => {
+    if (page > 1) {
+      // It's a results navigation
+      search({ page: isFirstPage ? 1 : page - 1 }, false);
+      return;
+    } // else the user wants to come back in history
     router.back();
   };
 
