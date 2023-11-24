@@ -41,7 +41,7 @@
 
 /* START: Hero styles */
 .hero {
-  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
+  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto -mt-14;
 }
 .hero__text-container {
   @apply flex-1 pt-36 padding-x ml-4;
@@ -62,6 +62,15 @@
   @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
 }
 /* END: Hero styles */
+
+/* START: Loading status bar styles */
+.loading-status-bar {
+  @apply absolute top-0 left-0 right-0 w-full bg-gray-200 rounded-full h-1.5 mb-0 dark:bg-gray-700 opacity-75;
+}
+.loading-status-bar__filled {
+  @apply bg-blue-600 h-full rounded-full dark:bg-blue-500;
+}
+/* END: Loading status bar styles */
 
 /* START: Footer styles */
 .footer {
@@ -108,7 +117,7 @@
   @apply max-width padding-y grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8;
 }
 .catalog__results .catalog__buttons-container {
-  @apply flex-center flex-row gap-4 ; 
+  @apply flex-center flex-row gap-4;
 }
 /* END: Catalog styles */
 
@@ -243,7 +252,9 @@
 .searchbar__filter-group {
   @apply flex w-full gap-5 flex-between items-center;
 }
+/* END: searchbar styles */
 
+/* START: Search Custom filters styles */
 .custom-filter__listbox {
   @apply relative w-fit z-10;
 }
@@ -258,7 +269,7 @@
   @apply relative cursor-default select-none py-2 px-4;
 }
 
-/* END: searchbar styles */
+/* END: Search Custom filters styles */
 
 /* START: search manufacturer styles */
 .search-manufacturer__options {
