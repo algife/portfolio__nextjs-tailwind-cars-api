@@ -107,3 +107,9 @@ export interface ShowMoreButtonProps extends BackButtonProps {
   totalCount: number;
 }
 
+export type MessagePageProps = {
+  title: string;
+  primaryText: string;
+  secondaryText: string;
+  hasBackButton?: boolean;
+};
