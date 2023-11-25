@@ -1,14 +1,12 @@
-/* Types go here */
-
 import { Session } from "next-auth";
-import { Dispatch, MouseEventHandler, SetStateAction } from "react";
+import { MouseEventHandler } from "react";
 import {
   UseFormGetValues,
   UseFormReturn,
   UseFormSetValue,
 } from "react-hook-form";
 
-export enum RenderingMethod {
+export enum FetchingMethod {
   "ISR" = "ISR", // Incremental Static Regeneration → data is fetched once on build time and again in subsequent visits after a certain cooldown time.
   "SSR" = "SSR", // Server Side Rendering → data is fetched before every single render
   "SSG" = "SSG", // Static Site Generation → the data is fetched once at build time
@@ -107,10 +105,16 @@ export interface BackButtonProps {
 export interface ShowMoreButtonProps extends BackButtonProps {
   totalCount: number;
 }
-
 export type MessagePageProps = {
   title: string;
   primaryText: string;
   secondaryText: string;
   hasBackButton?: boolean;
+};
+
+export type CarImageProps = {
+  car: Pick<CarProps, "make" | "year" | "model">;
+  alt: string;
+  angle?: number;
+  priority?: boolean;
 };

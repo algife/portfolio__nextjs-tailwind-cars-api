@@ -2,12 +2,12 @@ import { manufacturers, mostDesiredSuperCars } from "@/config/constants";
 import {
   CarProps,
   CarSearchFilterPropsPartial,
-  RenderingMethod,
+  FetchingMethod,
 } from "@/typings.d";
 import _ from "underscore";
 
 export const getFetchingMethod = (
-  strategy: RenderingMethod
+  strategy: FetchingMethod
 ): RequestInit | undefined => {
   switch (strategy) {
     case "ISR":
@@ -35,6 +35,7 @@ export const fetchCars = async (
       "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY ?? "",
       "X-RapidAPI-Host": HOST ?? "",
     },
+    ...getFetchingMethod(FetchingMethod.ISR),
   };
 
   try {

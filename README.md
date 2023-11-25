@@ -20,17 +20,11 @@ This is a [Next.js 14](https://nextjs.org/) project bootstrapped with [`create-n
   - [x] Grouped Routes (e.g. `(users)`)
 - [x] Create Custom Hooks
 - [x] Data fetching techniques (ISR, SSR, SSG)
-- [x] Server-side Rendering
 - [x] Server components
-- [x] Server Actions
 - [x] Client components when user interaction is needed
-- [x] Next.js built-in reserved-keyword pages such as:
-  - `page.tsx`, `layout.tsx`
-  - custom error pages using `error.tsx`
-  - Custom Not Found page using `not-found.tsx`
-  - loading placeholders using `loading.tsx` or the `<Suspense fallback={/*...*/}>` component.
-  - loading status bar indicating progress during the search.
-- [x] Customized the html page titles using Metadata rather than `head.tsx`.
+- [x] Server Actions
+- [x] Image preloading
+- [x] Fetching data with preloading
 - [x] Params fetching:
   - [x] Using dynamic params (`/(users)/catalog/[id]/page.tsx`) -- Although cars doesn't have an specific id provided by the server.
   - [x] Using router prefetching.
@@ -38,6 +32,13 @@ This is a [Next.js 14](https://nextjs.org/) project bootstrapped with [`create-n
 - [x] Redux State Management replacing the useState React Hook.
 - [x] Authentication & Authorization
 - [x] Using Context API
+- [x] Next.js built-in reserved-keyword pages such as:
+  - `page.tsx`, `layout.tsx`
+  - custom error pages using `error.tsx`
+  - Custom Not Found page using `not-found.tsx`
+  - loading placeholders using `loading.tsx` or the `<Suspense fallback={/*...*/}>` component.
+  - loading status bar indicating progress during the search.
+- [x] Customized the html page titles using Metadata rather than `head.tsx`.
 - [x] Build and Deployment
 - [x] Using BEM naming convention for CSS class names
 - [x] Version Control (Git) and Git flow.
@@ -50,12 +51,12 @@ This is a [Next.js 14](https://nextjs.org/) project bootstrapped with [`create-n
   - [x] Combobox Autocomplete Suggestions with Headless UI to suggest manufacturer.
   - [x] Modal box / Dialog to display search result details
   - [x] Inherit props from the form from parent to children.
-  <!-- - [ ] Performace Optimization such as Progressive Enhancement and Code Splitting -->
-  <!-- - [ ] Testing -->
-  <!-- - [ ] Database Interaction -->
-  <!-- - [ ] API Design and Implementation with REST, tRPC, GraphQL -->
-  <!-- - [ ] Request Validation and Errors UX  -->
-  <!-- - [ ] Form Validation and Errors UX -->
+    <!-- - [ ] Performace Optimization such as Progressive Enhancement and Code Splitting -->
+    <!-- - [ ] Testing -->
+    <!-- - [ ] Database Interaction -->
+    <!-- - [ ] API Design and Implementation with REST, tRPC, GraphQL -->
+    <!-- - [ ] Request Validation and Errors UX  -->
+    <!-- - [ ] Form Validation and Errors UX -->
 - [x] Using Metadata for SEO purposes
 - [x] Responsive Design
 

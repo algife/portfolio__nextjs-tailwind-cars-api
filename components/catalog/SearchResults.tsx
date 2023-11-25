@@ -15,6 +15,17 @@ import GoBackButton from "../buttons/GoBackButton";
 import ShowMoreButton from "../buttons/ShowMoreButton";
 import SearchResultCard from "./SearchResultCard";
 
+// export const preload = ({ searchParams }: SearchResultsProps) => {
+//   // void evaluates the given expression and returns undefined
+//   // https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/void
+//   void fetchCars({
+//     manufacturer: searchParams.manufacturer || "",
+//     model: searchParams.model || "",
+//     fuel: searchParams.fuel || undefined,
+//     year: searchParams.year || undefined,
+//   });
+// };
+
 export default function SearchResults({ searchParams }: SearchResultsProps) {
   const dispatch = useDispatch();
   const storedList = store.getState().search.results ?? [];
@@ -33,6 +44,7 @@ export default function SearchResults({ searchParams }: SearchResultsProps) {
       fuel: searchParams.fuel || undefined,
       year: searchParams.year || undefined,
     });
+
     // Set fetched list by Updating the state
     dispatch(setSearchResults(listFetched));
     const [startIndex, endIndex] = [
