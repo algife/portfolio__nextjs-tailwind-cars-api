@@ -226,7 +226,7 @@
 
 /* START: searchbar styles */
 .searchbar {
-  @apply flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl;
+  @apply flex flex-col items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl;
 }
 .searchbar__item {
   @apply mr-2 w-full;
@@ -250,7 +250,6 @@
 /* END: searchbar styles */
 
 /* START: Search Custom filters styles */
-
 .searchbar__filter-container {
   @apply w-full flex flex-wrap justify-start items-center gap-2;
 }
@@ -263,7 +262,6 @@
 .custom-filter__btn {
   @apply relative w-full min-w-[127px] flex justify-between items-center cursor-default rounded-lg bg-white py-2 px-3 text-left shadow-md sm:text-sm border;
 }
-
 .custom-filter__options {
   @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
 }

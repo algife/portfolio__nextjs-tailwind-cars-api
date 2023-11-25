@@ -2,9 +2,9 @@
 import useSearch from "@/hooks/useSearch";
 import { SearchFilterComponentProps } from "@/typings.d";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { ChangeEvent, useMemo } from "react";
 import _ from "underscore";
+import HelperText from "../HelperText";
 import SearchButton from "./SearchButton";
 
 const SearchByModel = ({ formMethods }: SearchFilterComponentProps) => {
@@ -40,24 +40,31 @@ const SearchByModel = ({ formMethods }: SearchFilterComponentProps) => {
   };
 
   return (
-    <div className="form-control searchbar__item search__model">
-      <div className="searchbar__img-container">
-        <Image
-          src="/model-icon.png"
-          width={25}
-          height={25}
-          className="searchbar__img search-model__image"
-          alt="car model"
+    <div className="flex flex-col w-full">
+      <div className="form-control searchbar__item search__model">
+        <div className="searchbar__img-container">
+          <Image
+            src="/model-icon.png"
+            width={25}
+            height={25}
+            className="searchbar__img search-model__image"
+            alt="car model"
+          />
+        </div>
+        <input
+          {...register("model")}
+          type="text"
+          onChange={handleInputChange}
+          placeholder="Tiguan"
+          className="searchbar__input search-model__input"
         />
+        <SearchButton extraClasses="sm:hidden" />
       </div>
-      <input
-        {...register("model")}
-        type="text"
-        onChange={handleInputChange}
-        placeholder="Tiguan"
-        className="searchbar__input search-model__input"
+      <HelperText
+        className="text-red-500 flex-1 relative inline"
+        show={!!errors.model}
+        text={errors.model?.message ?? ""}
       />
-      <SearchButton extraClasses="sm:hidden" />
     </div>
   );
 };

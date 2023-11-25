@@ -107,6 +107,7 @@ export type CarSearchFilterPropsPartial = Partial<CarSearchFilterPropsStrict>;
 export interface HelperTextProps {
   text: string;
   show: boolean;
+  className?: string;
 }
 export interface BackButtonProps {
   page?: number;

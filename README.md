@@ -55,8 +55,7 @@ This is a [Next.js 14](https://nextjs.org/) project bootstrapped with [`create-n
     <!-- - [ ] Testing -->
     <!-- - [ ] Database Interaction -->
     <!-- - [ ] API Design and Implementation with REST, tRPC, GraphQL -->
-    <!-- - [ ] Request Validation and Errors UX  -->
-    <!-- - [ ] Form Validation and Errors UX -->
+- [x] Form Validation with Zod (just for demo purposes).
 - [x] Using Metadata for SEO purposes
 - [x] Responsive Design
 
