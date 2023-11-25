@@ -7,13 +7,14 @@ import {
 import { setSearchResults } from "@/redux/actions/search.actions";
 import { store } from "@/redux/store";
 import { CarProps, SearchResultsProps } from "@/typings.d";
-import { fetchCars, getCarId } from "@/utils/functions";
+import { fetchCars } from "@/utils/functions";
 import { Suspense, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import _ from "underscore";
 import GoBackButton from "../buttons/GoBackButton";
 import ShowMoreButton from "../buttons/ShowMoreButton";
 import SearchResultCard from "./SearchResultCard";
+import { getCarId } from "@/utils/server-actions";
 
 // export const preload = ({ searchParams }: SearchResultsProps) => {
 //   // void evaluates the given expression and returns undefined

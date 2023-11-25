@@ -1,4 +1,4 @@
-import { selectRandomSuperCar } from "@/utils/functions";
+import { selectRandomSuperCar } from "@/utils/server-actions";
 import CarImage from "./CarImage";
 import HeroCta from "./HeroCta";
 
