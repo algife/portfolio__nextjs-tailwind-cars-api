@@ -11,6 +11,8 @@ import CustomFilter from "./CustomFilter";
 import { fuels, yearsOfProduction } from "@/config/constants";
 
 const SearchBar = () => {
+  const search = useSearch();
+
   // RHF: React Hook Form
   const formMethods = useForm<CarSearchFilterPropsPartial>({
     reValidateMode: "onChange",
@@ -25,11 +27,11 @@ const SearchBar = () => {
   const updateSearchStateFromUrl = useUpdateSearchStateFromUrl({
     setValue: formMethods.setValue,
   });
+
   useEffect(() => {
     updateSearchStateFromUrl();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const search = useSearch();
   const handleSubmit: SubmitHandler<CarSearchFilterPropsPartial> = (data) =>
     search(data, true);
 

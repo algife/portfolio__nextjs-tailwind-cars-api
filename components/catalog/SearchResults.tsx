@@ -14,17 +14,7 @@ import _ from "underscore";
 import GoBackButton from "../buttons/GoBackButton";
 import ShowMoreButton from "../buttons/ShowMoreButton";
 import SearchResultCard from "./SearchResultCard";
-
-// export const preload = ({ searchParams }: SearchResultsProps) => {
-//   // void evaluates the given expression and returns undefined
-//   // https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/void
-//   void fetchCars({
-//     manufacturer: searchParams.manufacturer || "",
-//     model: searchParams.model || "",
-//     fuel: searchParams.fuel || undefined,
-//     year: searchParams.year || undefined,
-//   });
-// };
+import preFetchAndCache from "@/utils/preFetchAndCache";
 
 export default function SearchResults({ searchParams }: SearchResultsProps) {
   const dispatch = useDispatch();
@@ -38,12 +28,14 @@ export default function SearchResults({ searchParams }: SearchResultsProps) {
     const newPage: number = +(searchParams.page || 1);
     setPagination(newPage);
 
-    const listFetched = await fetchCars({
-      manufacturer: searchParams.manufacturer || "",
-      model: searchParams.model || "",
-      fuel: searchParams.fuel || undefined,
-      year: searchParams.year || undefined,
-    });
+    const listFetched = await preFetchAndCache(
+      fetchCars({
+        manufacturer: searchParams.manufacturer || "",
+        model: searchParams.model || "",
+        fuel: searchParams.fuel || undefined,
+        year: searchParams.year || undefined,
+      })
+    );
 
     // Set fetched list by Updating the state
     dispatch(setSearchResults(listFetched));

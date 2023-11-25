@@ -1,5 +1,6 @@
 "use client";
 import useSearch from "@/hooks/useSearch";
+import { setLoadingStart } from "@/redux/actions/global-ui.actions";
 import { CustomFilterProps } from "@/typings.d";
 import { sentenceCase, tryParseIntOrContinue } from "@/utils/functions";
 import { Listbox, Transition } from "@headlessui/react";
@@ -17,6 +18,7 @@ const CustomFilter = ({
   options: rawOptions,
   formMethods,
 }: CustomFilterProps) => {
+  const dispatch = useDispatch();
   const EMPTY_TITLE = name;
   const parsedOptions: CustomFilterOption[] = [
     // Allow Empty option
@@ -32,13 +34,13 @@ const CustomFilter = ({
 
   const { register, getValues, setValue } = formMethods;
   const search = useSearch();
-  const handleSelectValueChange = (optSel: CustomFilterOption) => {
-    // TODO Start loading bar
 
+  const handleSelectValueChange = (optSel: CustomFilterOption) => {
+    dispatch(setLoadingStart());
     setListboxOptionSelected(optSel);
     // Update form
     const parsedValue = tryParseIntOrContinue(optSel.value);
-    setValue(name, parsedValue);
+    setValue(name, parsedValue, { shouldValidate: true });
 
     // Update Search by URL
     search({ [name]: parsedValue }, false);

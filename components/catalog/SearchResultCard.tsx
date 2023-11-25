@@ -1,9 +1,10 @@
 "use client";
 import { CarProps } from "@/typings.d";
-import { calculateCarRentString, getCarName } from "@/utils/functions";
+import { calculateCarRentString } from "@/utils/functions";
 import Image from "next/image";
 import { useState } from "react";
 import CarImage from "../CarImage";
+import CarName from "../CarName";
 import CustomButton from "../buttons/CustomButton";
 import CarDetailsDialog from "../dialog/CarDetailsDialog";
 
@@ -15,13 +16,13 @@ const SearchResultCard = ({ car }: { car: CarProps }) => {
   const carRent = calculateCarRentString(city_mpg, year);
   const handleSeeDetailsClick = () => {
     setIsModalOpen(true);
-    // router.push(`/discover/${getCarId(car)}`);
+    // router.push(`/discover/${getCarId(car)}`,{prefetch: true,});
   };
 
   return (
     <div className="details-card group">
       <h2 className="details-card__title">
-        {getCarName(car)} {car.class}
+        <CarName car={car} />
       </h2>
       <p className="flex mt-6 details-card__rent">
         <span className="text-[32px] font-extrabold details-card__rent__amount">

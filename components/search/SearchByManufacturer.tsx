@@ -2,13 +2,16 @@
 import { manufacturers } from "@/config/constants";
 import useSearch from "@/hooks/useSearch";
 import { SearchFilterComponentProps } from "@/typings.d";
+import {
+  findManufacturer,
+  trimLowercaseOrEmptyString,
+} from "@/utils/functions";
 import { Combobox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Fragment, useMemo } from "react";
 import _ from "underscore";
 import HelperText from "../HelperText";
 import SearchButton from "./SearchButton";
-import { findManufacturer, trimLowercaseOrEmptyString } from "@/utils/functions";
 
 const SearchByManufacturer = ({ formMethods }: SearchFilterComponentProps) => {
   const name = "manufacturer";
@@ -27,7 +30,7 @@ const SearchByManufacturer = ({ formMethods }: SearchFilterComponentProps) => {
     () =>
       _.debounce((q: string) => {
         if (q.trim() === "") {
-          setValue(name, ""); // Update the UI with the right name in sentence case
+          setValue(name, "", { shouldValidate: true }); // Update the UI with the right name in sentence case
           search({ manufacturer: "" }, false);
           return;
         } else {
@@ -35,7 +38,7 @@ const SearchByManufacturer = ({ formMethods }: SearchFilterComponentProps) => {
           const found = findManufacturer(q);
 
           const valueWithFallback = found ?? q ?? "";
-          setValue(name, valueWithFallback); // Update the UI with the right name in sentence case
+          setValue(name, valueWithFallback, { shouldValidate: true }); // Update the UI with the right name in sentence case
 
           search({ manufacturer: valueWithFallback }, false);
           return;

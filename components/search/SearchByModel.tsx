@@ -23,7 +23,7 @@ const SearchByModel = ({ formMethods }: SearchFilterComponentProps) => {
     () =>
       _.debounce((q: string) => {
         // This search function will be called once every 500ms after the user stops typing.
-        setValue("model", q);
+        setValue("model", q, { shouldValidate: true });
 
         search({ model: q }, false);
       }, 500),
@@ -35,7 +35,7 @@ const SearchByModel = ({ formMethods }: SearchFilterComponentProps) => {
     const { value } = e.target;
 
     // Auto search on query changes (with throttling):
-    // setValue("model", value);
+    // setValue("model", value, { shouldValidate: true });
     debounceSendQuery(value ?? "");
   };
 

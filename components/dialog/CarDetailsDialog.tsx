@@ -1,7 +1,6 @@
 "use client";
 import CarImage from "@/components/CarImage";
-import { store } from "@/redux/store";
-import { CarDetailsDialogsProps } from "@/typings.d";
+import { CarDetailsDialogProps } from "@/typings.d";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Fragment } from "react";
@@ -12,11 +11,13 @@ export default function CarDetailsDialog({
   car,
   isModalOpen,
   setIsModalOpen,
-}: CarDetailsDialogsProps) {
+}: CarDetailsDialogProps) {
   // const dispatch = useDispatch();
-  const searchStateSlice = store.getState().search;
+  // const searchStateSlice = store.getState().search;
 
-  const handleModalClose = () => setIsModalOpen(false);
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <Transition appear show={isModalOpen} as={Fragment}>
@@ -90,7 +91,9 @@ export default function CarDetailsDialog({
                         <h4 className="text-grey capitalize">
                           {key.split("_").join(" ")}
                         </h4>
-                        <p className="text-black-100 font-semibold">{value}</p>
+                        <p className="text-black-100 font-semibold">
+                          {(value ?? "").toString()}
+                        </p>
                       </div>
                     ))}
                   </div>

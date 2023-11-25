@@ -1,5 +1,5 @@
 import { Session } from "next-auth";
-import { MouseEventHandler } from "react";
+import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 import {
   UseFormGetValues,
   UseFormReturn,
@@ -47,6 +47,16 @@ export interface CarProps {
   transmission: string;
   year: number;
 }
+
+export type CarNameProps = {
+  car: CarProps;
+};
+
+export type CarDetailsDialogProps = {
+  car: CarProps;
+  isModalOpen: boolean;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+};
 export type CarSearchFilterPropsStrict = Pick<
   CarProps,
   "drive" | "model" | "transmission" | "year"

@@ -27,7 +27,7 @@ const useUpdateSearchStateFromUrl = ({
         pValue = pValue ?? "";
 
         // Update form field value
-        setValue(pKey, pValue);
+        setValue(pKey, pValue, { shouldValidate: true });
         // Update the state
         dispatch(setSearchParam({ [pKey]: pValue }));
       }

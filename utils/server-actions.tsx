@@ -1,4 +1,7 @@
-"use server";
+"use server"; // TRANSFORMS ALL THIS ASYNC FUNCTIONS INTO SERVER ACTIONS.
+import "server-only";
+
+// -----
 
 export const checkEnvVars = async () => {
   const keys = [

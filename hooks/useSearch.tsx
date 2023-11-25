@@ -61,7 +61,9 @@ const useSearch = () => {
       ignorePrevious
     );
 
-    router.push(newPathName);
+    router.push(newPathName, {
+      prefetch: true,
+    });
   };
 };
 
